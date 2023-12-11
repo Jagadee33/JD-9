@@ -40,3 +40,30 @@ void insert_e(int d) {
       temp->next = newnode;
       
     }
+}
+void insert_m(int d,int pos) {
+  struct node * newnode =(struct node*)malloc(sizeof(struct node));
+  newnode->data = d;
+  newnode->next = NULL;
+  struct node *temp1 = head;
+  struct node *temp2 = temp1->next;
+  while(pos>2){
+    temp1 = temp1->next;
+    temp2 = temp2->next;
+    pos--;
+  }
+  temp1->next =  newnode;
+  newnode->next = temp2;
+}
+int main()
+{
+    insert_b(10);
+    insert_b(20);
+    insert_b(30);
+    insert_b(40);
+    display();
+    insert_e(50);
+    display();
+    insert_m(60,4);
+    display();
+}
